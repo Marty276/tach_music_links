@@ -1,4 +1,85 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --white: #ffffff;
+  --black: #000000;
+  --purple: #2E134A;
+}
+
+body {
+  background: linear-gradient(to right, #130521, #240a40, #130521);
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+main {
+  background-color: #2E134A;
+  min-height: 100vh;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 0 100px #130521;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 45px 15px 30px 15px;
+  align-items: center;
+  color: var(--white);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.page_header {
+ width: 80%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 15px;
+}
+
+.page_header h1 {
+  font-weight: 500;
+  font-size: 35px;
+  margin: 0;
+}
+
+.profile_picture {
+  width: 20%;
+  min-width: 60px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.latest_release_section {
+  text-align: center;
+  font-weight: 300;
+}
+
+.latest_release_image {
+  width: 150px;
+  max-width: 60%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.latest_release_section p {
+  margin: 0
+}
+
+.latest_release_main_text {
+  font-size: 18px;
+  text-decoration: underline;
+  line-height: 1.5;
+}
+
+.latest_release_secondary_text {
+  font-size: 13px;
 }
