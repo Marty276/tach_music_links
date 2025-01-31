@@ -28,6 +28,7 @@ main {
   padding: 45px 15px 30px 15px;
   align-items: center;
   color: var(--white);
+  box-sizing: border-box;
 }
 
 section {
@@ -35,6 +36,12 @@ section {
   flex-direction: column;
   align-items: center;
   width: 80%;
+}
+
+@media (max-width: 400px) {
+  section {
+    width: 90%
+  }
 }
 
 .page_header {
@@ -82,4 +89,58 @@ section {
 
 .latest_release_secondary_text {
   font-size: 13px;
+}
+
+.links_section h3 {
+  font-weight: 400;
+  font-size: 22px;
+}
+
+.links_list {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.link {
+  position: relative;
+  border: none;
+  width: 100%;
+  height: 48px;
+  padding: 12px 6px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 48px;
+  transition: all .3s;
+}
+
+.link:hover {
+  translate: 0 -2.5px;
+  box-shadow: 0 20px 10px -20px #000c;
+}
+
+.link span {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 25px;
+  font-weight: 600;
+  color: var(--white);
+  transition: all .3s;
+}
+
+.link:hover span {
+  text-shadow: 0 5px 5px #000a;
+}
+
+.link img {
+  position: absolute;
+  height: 38px;
+  width: auto;
+  float: left;
+  transition: all .3s;
 }
