@@ -1,12 +1,13 @@
 :root {
   --white: #ffffff;
   --black: #000000;
-  --l_purple: #5c3882;
+  --l_purple: #561997;
   --purple: #2E134A;
-  --d_purple: #130521;
+  --d_purple: #16002b;
+  --max_page_width: 500px;
 }
 
-body {
+html, body {
   /* background: linear-gradient(to right, #130521, #240a40, #130521); */
   background-color: var(--d_purple);
   padding: 0;
@@ -21,7 +22,7 @@ a {
 main {
   background: linear-gradient(to bottom, var(--l_purple), var(--d_purple));
   min-height: 100vh;
-  max-width: 500px;
+  max-width: var(--max_page_width);
   width: 100%;
   margin: 0 auto;
   box-shadow: 0 0 100px #000;
@@ -59,6 +60,7 @@ section {
   font-weight: 500;
   font-size: 35px;
   margin: 0;
+  text-shadow: 0 5px 5px #000a;
 }
 
 .profile_picture {
@@ -108,6 +110,9 @@ section {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  transition: all .5s;
+  list-style-type: none;
+  overflow: hidden;
 }
 
 .link {

@@ -1,24 +1,22 @@
+'use client'
 import Image from "next/image"
 import Link from "next/link"
-
-type linkInfo = {
-  icon_src?: string
-  text: string
-  colors: `#${string}`[]
-  url?: string
-}
+import { useEffect, useRef, useState } from "react"
+import { LinkButton } from "./components/LinkButton"
+import type { linkInfo } from "./types.d.ts"
+import { useSearchParams } from "next/navigation"
 
 const main_links: linkInfo[] = [
   {
     icon_src: "/Spotify_logo.svg",
     text: "Spotify",
-    colors: ["#000", "#1ED760"],
+    colors: ["#000000", "#1ED760"],
     url: ""
   },
   {
     icon_src: "/Instagram_logo.svg",
     text: "Instagram",
-    colors: ["#ffdc80", "#e1306c", "#5b51d8"],
+    colors: ["#5b51d8", "#e1306c", "#ffdc80"],
     url: ""
   },
   {
@@ -30,12 +28,33 @@ const main_links: linkInfo[] = [
   {
     icon_src: "/Youtube_logo.svg",
     text: "Youtube",
-    colors: ["#FF0000", "#282828"],
+    colors: ["#FF0000", "#000000"],
     url: ""
   }
 ]
 
+const extra_links: linkInfo[] = [
+  {
+    icon_src: "/_logo.svg",
+    text: "Youtube Music",
+    colors: ["#FF0000", "#ffffff"],
+    url: ""
+  },
+  {
+    icon_src: "/Facebook_logo.svg",
+    text: "OnlyFans",
+    colors: ["#1877F2", "#104088"],
+    url: ""
+  },
+]
 export default function Home() {
+
+  const [showExtraLinks, setShowExtraLinks] = useState(false)
+
+  useEffect(()=>{
+    window.scrollTo({top: document.body.scrollHeight, behavior: "smooth"})
+  }, [showExtraLinks])
+
   return (
     <>
       <main>
@@ -61,7 +80,7 @@ export default function Home() {
             className="latest_release_image"
           />
           <a href=""><p className="latest_release_main_text">
-            Escucha el EP YTSDTVN
+            Escucha el YTSDTVN (EP)
             <br />
             Nuestro último lanzamiento
           </p></a>
@@ -75,7 +94,9 @@ export default function Home() {
             <h3>Links principales:</h3>
           </header>
           <ul className="links_list">
-            {main_links.map((linkInfo, id) => <LinkButton key={id} {...linkInfo} />)}
+            {main_links.map((linkInfo, id) => <li key={id}><LinkButton {...linkInfo} /></li>)}
+            <LinkButton text={showExtraLinks ? "Ver menos" : "Ver más"} colors={["#444", "#888", "#aaa"]} callBack={()=>{setShowExtraLinks(!showExtraLinks)}}/>
+            {showExtraLinks && extra_links.map((linkInfo, id) => <li key={id}><LinkButton {...linkInfo} /></li>)}
           </ul>
         </section>
       </main>
@@ -83,19 +104,3 @@ export default function Home() {
   )
 }
 
-function LinkButton({ icon_src, text, colors, url }: linkInfo) {
-  return <Link
-    className="link"
-    style={{ background: `linear-gradient(to right, ${colors.join(", ")})` }}
-    href={`${url}`}
-  >
-    {icon_src && <Image
-      src={icon_src}
-      alt={text}
-      width={0}
-      height={0}
-      sizes="100vw"
-    />}
-    <span>{text}</span>
-  </Link>
-}
