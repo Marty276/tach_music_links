@@ -8,7 +8,6 @@
 }
 
 html, body {
-  /* background: linear-gradient(to right, #130521, #240a40, #130521); */
   background-color: var(--d_purple);
   padding: 0;
   margin: 0;
@@ -29,7 +28,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 25px;
-  padding: 45px 15px 50px 15px;
+  padding: 45px 15px 0px 15px;
   align-items: center;
   color: var(--white);
   box-sizing: border-box;
@@ -141,6 +140,7 @@ section {
   font-weight: 600;
   color: var(--white);
   transition: all .3s;
+  text-shadow: 0 0px 10px #000c;
 }
 
 .link:hover span {
@@ -153,4 +153,10 @@ section {
   width: auto;
   float: left;
   transition: all .3s;
+}
+
+.page_footer {
+  margin: 30px 0 15px 0;
+  font-size: 15px;
+  opacity: .3;
 }
