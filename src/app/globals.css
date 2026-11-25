@@ -19,7 +19,11 @@ a {
 }
 
 main {
-  background: linear-gradient(to bottom, var(--l_purple), var(--d_purple));
+  /* background: linear-gradient(to bottom, var(--l_purple), var(--d_purple)); */
+  background-image: linear-gradient(to bottom, #0005, var(--d_purple)),
+    url(/bg.png);
+  background-position: center;
+  background-size: cover;
   min-height: 100vh;
   max-width: var(--max_page_width);
   width: 100%;
@@ -27,7 +31,7 @@ main {
   box-shadow: 0 0 100px #000;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
   padding: 45px 15px 0px 15px;
   align-items: center;
   color: var(--white);
@@ -100,6 +104,7 @@ section {
 .links_section h3 {
   font-weight: 400;
   font-size: 22px;
+  margin: 0px 0 30px 0;
 }
 
 .links_list {
@@ -108,7 +113,7 @@ section {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
   transition: all .5s;
   list-style-type: none;
   overflow: hidden;
